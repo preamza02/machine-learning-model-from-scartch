@@ -6,10 +6,15 @@ class _base(ABC):
     def __init__(self) -> None:
         super().__init__(self)
         self.name = self.__setname
+        print(self.__init_print())
 
     def __str__(self) -> str:
         return "{self.name}"
     
+    @abstractmethod
+    def __init_print(self):
+        print("")
+
     @abstractmethod 
     def __setname(self) -> str:
         return 'base_model'
@@ -21,10 +26,10 @@ class _base_model(_base):
 
     def __setname(self) -> str:
         return "base model"
-
+    
     @abstractmethod
     def train(x,y) -> None:
-        return 
+        return
 
 class _base_loss_function(_base):
     def __init__(self) -> None:
