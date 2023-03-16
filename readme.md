@@ -6,7 +6,8 @@ I will create some of machine learning model from scatch using only
 list that i need to do 
 
 - finish linear regession model
-  - finish loss_funcion
+  - clean code 
+  - finish unit test
 
 create UML diagram
 ```terminal
