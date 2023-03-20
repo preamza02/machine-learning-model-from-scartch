@@ -1,24 +1,7 @@
-from .base_class import Base
+from ..bases.base_loss_function import BaseLossFunction
 import numpy as np
 from abc import abstractmethod
-
-
-class BaseLossFunction(Base):
-    def __init__(self) -> None:
-        super().__init__()
-
-    def cal(self, y: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
-        af = np.vectorize(self.function)
-        return af(y_pred, y)
-
-    @abstractmethod
-    def set_name(self) -> str:
-        return "base loss function"
-
-    @abstractmethod
-    def function(self, pred: float, actual: float) -> float:
-        return 
-
+# from models.eval_matric import cal_acc
 
 class DiffableLoss(BaseLossFunction):
     def __init__(self) -> None:
@@ -50,3 +33,7 @@ class MAE(DiffableLoss):
 
     def set_name(self) -> str:
         return "Mean Absolute error (MAE)"
+    
+
+if __name__ == "__main__":
+    print('run')

@@ -1,8 +1,8 @@
-from abc import ABC, abstractmethod
-import numpy as np
+from abc import abstractmethod
 from tqdm import tqdm
-from .loss_function import DiffableLoss
 from .base_class import Base
+from ..lossfunctions.diffable_loss import DiffableLoss
+import numpy as np
 
 
 class BaseModel(Base):
@@ -65,3 +65,8 @@ class BaseRegressionModel(BaseModel):
     def activation_function(self, x: float) -> float:
         """Return the activation function applied to x."""
         return x
+    
+
+class BaseTreeModel(BaseModel):
+    def __init__(self) -> None:
+        super().__init__()

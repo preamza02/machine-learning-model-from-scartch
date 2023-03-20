@@ -1,10 +1,7 @@
 import numpy as np
-from tqdm import tqdm
-from .classes.loss_funtion import MSE,MAE
-from .classes.base_model import base_regession_model
-from .function.eval_matric import cal_acc
-
-class linear_regession(base_regession_model):
+from ..bases.base_model import BaseRegressionModel
+from ..lossfunctions.diffable_loss import MSE,MAE
+class linear_regession(BaseRegressionModel):
     def __init__(self,
                  loss_function:str = "MSE"
                  ) -> None:

@@ -1,7 +1,8 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod
+import abc
 
 
-class Base(ABC):
+class Base(abc.ABC):
     def __init__(self) -> None:
         self.name = self._set_name()
         self._init_print()
@@ -16,3 +17,6 @@ class Base(ABC):
     def _set_name(self) -> str:
         return 'base_model'
     
+
+if __name__ == "__main__":
+    print('run')

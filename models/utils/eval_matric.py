@@ -1,5 +1,5 @@
 import numpy as np
-def cal_acc(y_true,y_pred,loss_funtion):
+def cal_acc(y_true,y_pred):
     return (y_true==y_pred).sum()/len(y_true)
 
 def cal_tp(y_true,y_pred):
