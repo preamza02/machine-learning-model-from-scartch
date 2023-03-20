@@ -1,30 +1,36 @@
 from ..bases.base_loss_function import BaseLossFunction
 import numpy as np
 from abc import abstractmethod
-# from models.eval_matric import cal_acc
 
 class DiffableLoss(BaseLossFunction):
     def __init__(self) -> None:
         super().__init__()
 
     @abstractmethod
-    def set_name(self) -> str:
+    def _set_name(self) -> str:
         return "regression loss"
 
     @abstractmethod
     def diff(self, x: np.ndarray) -> np.ndarray:
         return x
+    
+    @abstractmethod
+    def function(self, pred: float, actual: float) -> float:
+        return 0.0
 
 
 class MSE(DiffableLoss):
     def __init__(self) -> None:
         super().__init__()
 
-    def set_name(self) -> str:
+    def _set_name(self) -> str:
         return "Mean square error (MSE)"
 
     def diff(self, x: np.ndarray) -> np.ndarray:
         return super().diff(x)
+    
+    def function(self, pred: float, actual: float) -> float:
+        return super().function(pred, actual)
 
 
 class MAE(DiffableLoss):

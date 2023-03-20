@@ -1,22 +1,24 @@
-from abc import abstractmethod
-import abc
+from abc import ABC,abstractmethod
+import numpy as np
 
 
-class Base(abc.ABC):
+class Base(ABC):
     def __init__(self) -> None:
         self.name = self._set_name()
-        self._init_print()
+        print(f"Created {self.name}")
 
     def __str__(self) -> str:
         return f"{self.name}"
-
-    def _init_print(self):
-        print(f"Created {self.name}")
 
     @abstractmethod
     def _set_name(self) -> str:
         return 'base_model'
     
 
-if __name__ == "__main__":
-    print('run')
+class BaseModel(Base):
+    @abstractmethod
+    def train(self, x: np.ndarray, y: np.ndarray) -> None:
+        pass
+
+
+# how can i create base class that when some class inherit i need to assiagn name and it will be print when initialize

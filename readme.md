@@ -11,5 +11,5 @@ list that i need to do
 
 create UML diagram
 ```terminal
-pyreverse .\models\ -o png 
+pyreverse .\models\ -o png -d .\uml_diagram\
 ```

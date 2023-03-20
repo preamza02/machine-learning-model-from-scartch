@@ -28,3 +28,6 @@ class linear_regession(BaseRegressionModel):
               ) -> None:
         super().train(x,y,epochs,batch_size,learning_rate)
 
+if __name__ == "__main__":
+    print('run')
+
